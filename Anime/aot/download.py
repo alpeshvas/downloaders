@@ -17,6 +17,8 @@ def download_using_whatever_you_want(url,location):
 def download_it(name,season,episode):
 	to_be_stored_location = BASE_DIR.format(tv_series_name=name,season=season)
 	file_name = FILE_NAME.format(season=season,episode=episode,tv_series_name=name)
+	if season == 1 and episode < 19:
+		return
 	if not os.path.exists(to_be_stored_location):
 		os.makedirs(to_be_stored_location)
 	print DOWNLOADING_STRING.format(season=season,episode=episode,tv_series_name=name)
